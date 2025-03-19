@@ -18,7 +18,7 @@ if "messages" not in st.session_state:
 
 def initialize_client():
     """Initialize the OpenAI client with SambaNova API"""
-    api_key = os.environ.get("SAMBANOVA_API_KEY")
+    api_key = "39e2ae22-9924-488c-b36e-f17740754edd"
     if not api_key:
         st.error("SAMBANOVA_API_KEY environment variable not set")
         st.stop()
