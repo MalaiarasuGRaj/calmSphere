@@ -13,8 +13,25 @@ st.set_page_config(
 # Initialize session state for chat history if it doesn't exist
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        {"role": "system", "content": "You are a helpful assistant"}
+        {"role": "system", "content": """You are an empathetic AI therapist. Follow these guidelines:
+        
+        1. Keep your responses brief and conversational - use short sentences.
+        2. Ask one focused question at a time.
+        3. Respond like a real therapist in a live session would - concisely and thoughtfully.
+        4. Avoid long explanations or paragraphs of text.
+        5. Use natural pauses and brief statements to encourage reflection.
+        6. Listen more than you speak - don't overwhelm with information.
+        7. Focus on understanding emotions before suggesting solutions.
+        8. Use a warm, professional tone that invites further sharing.
+        
+        Example style:
+        "I hear that you're feeling overwhelmed. What specifically triggered these feelings today?"
+        "That sounds difficult. How long have you been experiencing this?"
+        "I'm noticing a pattern in what you're sharing. Have you considered how these events might be connected?"
+        
+        Remember to keep responses under 3 sentences when possible."""}
     ]
+
 
 def initialize_client():
     """Initialize the OpenAI client with SambaNova API"""
@@ -36,17 +53,19 @@ def generate_response(messages: List[Dict[str, str]]):
         response = client.chat.completions.create(
             model="Meta-Llama-3.3-70B-Instruct",
             messages=messages,
-            temperature=0.1,
-            top_p=0.1
+            temperature=0.5,
+            top_p=0.7,
+            max_tokens=150
         )
         return response.choices[0].message.content
     except Exception as e:
         st.error(f"Error generating response: {str(e)}")
         return None
 
+
 # App header
-st.title("🧠 AI Therapist - CalmSphere")
-st.markdown("Feel free to express yourself. I'm here to listen and guide you.")
+st.title("🧠 CalmSphere - Your AI Therapeutic Companion")
+st.markdown("I'm here to listen and understand. Feel free to share what's on your mind at your own pace.")
 
 # Display chat history
 for message in st.session_state.messages:
@@ -55,7 +74,7 @@ for message in st.session_state.messages:
             st.write(message["content"])
 
 # Chat input
-if prompt := st.chat_input("What would you like to know?"):
+if prompt := st.chat_input("Share your thoughts or feelings..."):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
     
