@@ -119,15 +119,6 @@ with st.sidebar:
     practices to provide accessible, personalized support whenever you need it.
     """)
     
-    st.divider()
-    
-    # Add contact information
-    st.markdown("""
-    ### Contact Us
-    
-    📧 support@calmsphere.ai  
-    🌐 www.calmsphere.ai
-    """)
     
     # Add a clear chat button
     if st.button("Clear Chat"):
