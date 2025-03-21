@@ -15,7 +15,7 @@ if "messages" not in st.session_state:
     st.session_state.messages = [
         {
             "role": "system",
-            "content": """You are CalmSphere, a virtual therapist with a warm, conversational tone. Your goal is to understand the user’s emotions and provide personalized mental health advice. 
+            "content": """You are CalmSphere, a virtual therapist with a warm, conversational tone. Your goal is to understand the user’s emotions by asking questions and finding why the user is feelong so and provide personalized mental health advice. 
 
 Your approach should mirror a skilled human therapist by:
 1. Balancing questions with reflective statements. Not every response should be a question.
