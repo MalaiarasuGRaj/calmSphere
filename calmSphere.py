@@ -74,6 +74,14 @@ def generate_response(messages: List[Dict[str, str]]):
         st.error(f"Error generating response: {str(e)}")
         return None
 
+# Load model and tokenizer for CPU
+def load_model():
+    model = AutoModelForCausalLM.from_pretrained(
+        "Dhanyavarthini/Llama-2-7b-chat-finetune",
+        device_map="cpu"
+    )
+    tokenizer = AutoTokenizer.from_pretrained("Dhanyavarthini/Llama-2-7b-chat-finetune")
+    return model, tokenizer
 
 # App header
 st.title("🧠 CalmSphere - Your AI Therapeutic Companion")
