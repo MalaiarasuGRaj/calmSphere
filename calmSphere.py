@@ -47,7 +47,7 @@ Your goal is to make users feel heard, understood, and gently guided."""
 
 def initialize_client():
     """Initialize the OpenAI client with SambaNova API"""
-    api_key = "39e2ae22-9924-488c-b36e-f17740754edd"
+    api_key = "55aa93ff-6bcb-4cd0-a0af-8d777bdd7220"
     if not api_key:
         st.error("SAMBANOVA_API_KEY environment variable not set")
         st.stop()
