@@ -67,7 +67,7 @@ def generate_response(messages: List[Dict[str, str]]):
             messages=messages,
             temperature=0.5,
             top_p=0.7,
-            max_tokens=150
+            max_tokens=1500
         )
         return response.choices[0].message.content
     except Exception as e:
