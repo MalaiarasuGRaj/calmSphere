@@ -1,145 +1,102 @@
-# 🧠 CalmSphere - AI Therapy Assistant
 
-CalmSphere is an AI-powered mental wellness platform that provides personalized support for stress management, anxiety reduction, and mindfulness practices. This application uses advanced language models to create a conversational interface that offers guidance and support for mental wellbeing.
+# CalmSphere 🧠
 
-## 📋 Table of Contents
+CalmSphere is an AI-powered virtual therapist designed to provide accessible, empathetic, and context-aware mental health support through natural language conversations. Built using a fine-tuned micro-LLaMA 2-7B model, CalmSphere bridges the gap between human empathy and scalable machine intelligence.
 
-- [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Environment Variables](#environment-variables)
-- [Technology Stack](#technology-stack)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
-## 🔍 Overview
+## 🔍 Project Overview
 
-CalmSphere serves as a digital sanctuary for mental wellness, providing an accessible platform for users to express their thoughts and receive supportive guidance. The application leverages the Meta-Llama-3.3-70B-Instruct model through SambaNova's API to generate empathetic and helpful responses.
+Mental health issues such as anxiety, depression, and emotional fatigue are growing concerns globally. However, access to affordable, timely, and personalized mental health care is still limited by cost, social stigma, and lack of professionals.
 
-## ✨ Features
+CalmSphere offers a solution through:
 
-- **Conversational Interface**: Engage in natural, text-based conversations with the AI therapist
-- **Personalized Support**: Receive tailored guidance for mental wellness concerns
-- **Chat History**: Review previous interactions within a session
-- **Clear Chat**: Reset the conversation at any time
-- **Informative Sidebar**: Access information about CalmSphere's services and contact details
+- Emotionally aware AI conversations
+- Fine-tuned therapy-specific datasets
+- Personalized memory-driven interaction
+- Built-in safety, bias mitigation, and hallucination control
+- Lightweight model deployment with QLoRA for low-resource systems
 
-## 🚀 Installation
 
-1. Clone the repository:
+
+## 💡 Features
+
+- Active listening and empathetic response generation
+- Long-term memory for user-specific follow-up
+- Real-time mental health chat using `Streamlit` interface
+- Powered by the fine-tuned model [`Dhanyavarthini/Llama-2-7b-chat-finetune`](https://huggingface.co/Dhanyavarthini/Llama-2-7b-chat-finetune) hosted on Hugging Face
+- Trained on datasets including:
+  - CounselChat
+  - Empathetic Dialogues
+  - ICD & DSM references
+
+
+
+## 🧠 Model Details
+
+- **Base Model**: [LLaMA 2-7B](https://huggingface.co/meta-llama/Llama-2-7b)
+- **Fine-tuning Technique**: QLoRA (Quantized Low-Rank Adaptation)
+- **Training Platform**: Google Colab (using 4-bit quantization for efficiency)
+- **Hosted On**: Hugging Face – [`Dhanyavarthini/Llama-2-7b-chat-finetune`](https://huggingface.co/Dhanyavarthini/Llama-2-7b-chat-finetune)
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer        | Technology Used                  |
+|--------------|----------------------------------|
+| Frontend     | [Streamlit](https://streamlit.io) |
+| Backend      | Hugging Face Transformers & Tokenizers |
+| Model Training | Google Colab (QLoRA Fine-tuning) |
+| Model Hosting | Hugging Face Hub |
+| Language     | Python 3.10+ |
+
+---
+
+## 🖥️ Installation & Running
+
+**Clone the repository:**
+
 ```bash
 git clone https://github.com/yourusername/calmsphere.git
 cd calmsphere
 ```
 
-2. Create a virtual environment:
-```bash
-python -m venv venv
-```
+**Install Dependencies:**
 
-3. Activate the virtual environment:
-
-On Windows:
-```bash
-venv\Scripts\activate
-```
-
-On macOS/Linux:
-```bash
-source venv/bin/activate
-```
-
-4. Install the required dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-## 🖥️ Usage
+**Run the App:**
 
-1. Set up your environment variables (see [Environment Variables](#environment-variables))
-
-2. Run the Streamlit application:
 ```bash
-streamlit run calmSphere.py
+streamlit run app.py
 ```
-
-3. Open your web browser and navigate to the URL displayed in the terminal (typically http://localhost:8501)
-
-4. Start interacting with the CalmSphere AI therapist by typing your questions or concerns in the chat input field
-
-## 🔐 Environment Variables
-
-Before running the application, you need to set up the following environment variable:
-
-- `SAMBANOVA_API_KEY`: Your API key for accessing SambaNova's services
-
-You can set this environment variable in your terminal:
-
-On Windows:
-```bash
-set SAMBANOVA_API_KEY=your_api_key_here
-```
-
-On macOS/Linux:
-```bash
-export SAMBANOVA_API_KEY=your_api_key_here
-```
-
-Alternatively, you can create a `.env` file in the project root directory:
-```
-SAMBANOVA_API_KEY=your_api_key_here
-```
-
-## 💻 Technology Stack
-
-- **Frontend**: Streamlit
-- **Backend**: Python
-- **AI Model**: Meta-Llama-3.3-70B-Instruct via SambaNova API
-- **API Integration**: OpenAI-compatible client
-
-## 📁 Project Structure
-
-```
-calmsphere/
-├── calmSphere.py        # Main application file
-├── requirements.txt     # Project dependencies
-├── .env                 # Environment variables (create this file)
-├── README.md            # Project documentation
-└── .gitignore           # Git ignore file
-```
-
-## 📋 Requirements
-
-Create a `requirements.txt` file with the following dependencies:
-
-```
-streamlit>=1.28.0
-openai>=1.3.0
-python-dotenv>=1.0.0
-```
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 📞 Contact
-
-- Email: support@calmsphere.ai
-- Website: www.calmsphere.ai
 
 ---
 
-CalmSphere - Your digital sanctuary for mental wellness and mindfulness.
+## 📦 Hugging Face Integration
+
+This project uses a fine-tuned LLaMA 2 model hosted on Hugging Face:
+
+🔗 [Dhanyavarthini/Llama-2-7b-chat-finetune](https://huggingface.co/Dhanyavarthini/Llama-2-7b-chat-finetune)
+
+To use this model in your own project:
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model = AutoModelForCausalLM.from_pretrained("Dhanyavarthini/Llama-2-7b-chat-finetune")
+tokenizer = AutoTokenizer.from_pretrained("Dhanyavarthini/Llama-2-7b-chat-finetune")
+```
+
+
+## 👨‍💻 Contributors
+
+- **Malaiarasu G**   
+- **Nivetha S**    
+- **Pushpa Dharini S**    
+- **Dhanyavarthini A S**   
+
+🎓 Department of Artificial Intelligence & Data Science  
+📍 National Engineering College, Kovilpatti  
